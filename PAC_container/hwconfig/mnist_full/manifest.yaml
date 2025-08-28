@@ -1,0 +1,5 @@
+name: mnist_full
+description: Boot assets for the mnist_full configuration inside the  container
+revision: 1.0
+assets:
+    zcu104: zcu104

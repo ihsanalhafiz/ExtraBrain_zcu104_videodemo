@@ -1,0 +1,5 @@
+name: mnist_float
+description: Boot assets for the mnist_float configuration inside the  container
+revision: 1.0
+assets:
+    zcu104: zcu104

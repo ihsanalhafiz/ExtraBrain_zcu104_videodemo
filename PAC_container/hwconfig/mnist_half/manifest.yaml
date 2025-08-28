@@ -1,0 +1,5 @@
+name: mnist_half
+description: Boot assets for the mnist_half configuration inside the  container
+revision: 1.0
+assets:
+    zcu104: zcu104
