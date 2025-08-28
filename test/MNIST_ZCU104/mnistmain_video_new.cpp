@@ -493,7 +493,22 @@ int main(int argc, char **args) {
     //cap.set(cv::CAP_PROP_FRAME_HEIGHT, 480);
     //cap.set(cv::CAP_PROP_FPS, 60); 
 
-    std::string filename = "/home/ubuntu/camera-zcu104/output.avi";
+    std::string filename = "/home/ubuntu/ExtraBrain_zcu104_videodemo/video_input/output.avi";
+
+    gettimeofday(&total_time, 0);
+    string paramfile = "mnistmain.par";
+    std::string binaryFile;
+    std::string trained_data_file = "trained_data.bin";
+    if (argc > 1)
+        paramfile = args[1];
+    if (argc > 2)
+        binaryFile = args[2];
+    if (argc > 3)
+        trained_data_file = args[3];
+    if (argc > 4)
+        filename = args[4];
+    parseparams(paramfile);
+    
     cv::VideoCapture cap(filename);
     if (!cap.isOpened()) {
         printf("Error: Could not open the video file: %s\n", filename.c_str());
@@ -518,17 +533,6 @@ int main(int argc, char **args) {
     auto last_tick = std::chrono::steady_clock::now();
 
 
-    gettimeofday(&total_time, 0);
-    string paramfile = "mnistmain.par";
-    std::string binaryFile;
-    std::string trained_data_file = "trained_data.bin";
-    if (argc > 1)
-        paramfile = args[1];
-    if (argc > 2)
-        binaryFile = args[2];
-    if (argc > 3)
-        trained_data_file = args[3];
-    parseparams(paramfile);
 
     cl_int err;
     cl::Context context;
